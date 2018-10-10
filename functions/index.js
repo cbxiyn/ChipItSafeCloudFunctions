@@ -24,7 +24,8 @@ exports.createUserConfig = functions.auth.user().onCreate(user => {
     phoneNumber: user.phoneNumber,
     emailVerified: user.emailVerified,
     //TODO: Implement the datatype below
-    applicationType: "Wearer"
+    applicationType: "Wearer",
+    userAppToken: null
   };
   // [END eventAttributes]
   return createUserConfig(data);
@@ -35,7 +36,9 @@ exports.deleteUserConfig = functions.auth.user().onDelete(user => {
   // [END eventAttributes]
   return deleteUserConfig(user.uid);
 });
-
+exports.updateUserAppToken = functions.https.onRequest((req, res) => {
+    return updateUserAppToken(req);
+});
 /**
  * Cloud Functions implementations
  */
@@ -49,4 +52,10 @@ function createUserConfig(data) {
 function deleteUserConfig(uid) {
   db.collection("users").doc(uid).delete();
   return console.log("User config deleted");
+}
+function updateUserAppToken(req)
+{
+  var userAppToken = req.body.userAppToken;
+  db.collection("users").doc(req.body.uid).set(userAppToken.setOptions.merge());
+  return console.log("User App Token Updated");
 }
