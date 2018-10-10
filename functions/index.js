@@ -55,7 +55,11 @@ function deleteUserConfig(uid) {
 }
 function updateUserAppToken(req)
 {
-  var userAppToken = req.body.userAppToken;
-  db.collection("users").doc(req.body.uid).set(userAppToken.setOptions.merge());
+  var newUserAppToken = req.body.userAppToken;
+
+  var DocRef = db.collection("users").doc(req.body.uid);
+  console.log(req.body.uid);
+  var updateUserAppTokenField = DocRef.update({userAppToken: newUserAppToken})
+
   return console.log("User App Token Updated");
 }
