@@ -1,0 +1,166 @@
+[debug] [2018-10-11T08:41:16.265Z] ----------------------------------------------------------------------
+[debug] [2018-10-11T08:41:16.268Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\c.bailey\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-10-11T08:41:16.268Z] CLI Version:   5.0.1
+[debug] [2018-10-11T08:41:16.268Z] Platform:      win32
+[debug] [2018-10-11T08:41:16.268Z] Node Version:  v8.12.0
+[debug] [2018-10-11T08:41:16.270Z] Time:          Thu Oct 11 2018 09:41:16 GMT+0100 (GMT Daylight Time)
+[debug] [2018-10-11T08:41:16.270Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-11T08:41:16.284Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-11T08:41:16.285Z] > authorizing via signed-in user
+[debug] [2018-10-11T08:41:16.285Z] [iam] checking project chipitsafe for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasedatabase.instances.update"]
+[debug] [2018-10-11T08:41:16.287Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/chipitsafe:testIamPermissions  
+
+[debug] [2018-10-11T08:41:17.618Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:17.620Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chipitsafe  
+ 
+[debug] [2018-10-11T08:41:18.270Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'chipitsafe'...
+[info] 
+[info] i  deploying database, functions
+[info] Running command: npm --prefix "%RESOURCE_DIR%" run lint
+[info] +  functions: Finished running predeploy script.
+[info] i  database: checking rules syntax...
+[debug] [2018-10-11T08:41:25.140Z] >>> HTTP REQUEST PUT https://chipitsafe.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+[debug] [2018-10-11T08:41:25.683Z] <<< HTTP RESPONSE 200
+[info] +  database: rules syntax for database chipitsafe is valid
+[debug] [2018-10-11T08:41:25.688Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-10-11T08:41:25.690Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/chipitsafe?view=CONSUMER_VIEW  
+ 
+[debug] [2018-10-11T08:41:25.691Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/chipitsafe?view=CONSUMER_VIEW  
+ 
+[debug] [2018-10-11T08:41:27.068Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:27.198Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2018-10-11T08:41:27.201Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/chipitsafe  
+ 
+[debug] [2018-10-11T08:41:28.239Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:28.240Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/481101600087:getServerAppConfig  
+ 
+[debug] [2018-10-11T08:41:28.650Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-10-11T08:41:28.657Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/chipitsafe/configs  
+ 
+[debug] [2018-10-11T08:41:29.004Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (52.79 KB) for uploading
+[debug] [2018-10-11T08:41:29.576Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/chipitsafe/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2018-10-11T08:41:30.149Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:30.149Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-6acba152-f2fb-4f5d-a690-367ad786ba7f/88289b44-6057-485d-b6cb-331c7b2576d8.zip?GoogleAccessId=service-481101600087@gcf-admin-robot.iam.gserviceaccount.com&Expires=1539249089&Signature=EziOeeD8DtRI8%2FFuEHy8a08yg3Niy%2BJ6lIxk0iF3rz0cepppFt7jhBl1xGycvfzlc4U8an%2By8woJbYuV%2FyKv2DCMnQtDUeq%2FdXD%2B4dh%2Bk9H53z2MJZMbDdf8%2ByhFGunCo2JA8yhg330oDlmXBSa6qj85TFuebGwqSGXdC%2F%2BjuKDq74dSUS4i1AYRaQmT%2FUdd%2FMShPlj8MDegIQTPx3xcs0dGwtLW6Og%2FaYUiF50piA9jBCD%2Bzv3wtBUgIWnYdgJ1IGreF3qEcpcTokVzPSNaovsn0jSevzBM8zYNt6Kq0OLxAdyMRq9quvHUUSpIto0NB2b4dTfyF3J0NleOongv2w%3D%3D  
+
+[debug] [2018-10-11T08:41:30.765Z] <<< HTTP RESPONSE 200
+[info] +  functions: functions folder uploaded successfully
+[info] i  database: releasing rules...
+[debug] [2018-10-11T08:41:30.770Z] >>> HTTP REQUEST PUT https://chipitsafe.firebaseio.com/.settings/rules.json  
+ {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+[debug] [2018-10-11T08:41:32.249Z] <<< HTTP RESPONSE 200
+[info] +  database: rules for database chipitsafe released successfully
+[debug] [2018-10-11T08:41:32.252Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/chipitsafe/locations/-/functions  
+ 
+[debug] [2018-10-11T08:41:32.856Z] <<< HTTP RESPONSE 200
+[info] i  functions: updating Node.js 6 function createUserConfig(us-central1)...
+[debug] [2018-10-11T08:41:32.859Z] Trigger is:  {"eventTrigger":{"resource":"projects/chipitsafe","eventType":"providers/firebase.auth/eventTypes/user.create","service":"firebaseauth.googleapis.com"}}
+[info] i  functions: updating Node.js 6 function deleteUserConfig(us-central1)...
+[debug] [2018-10-11T08:41:32.860Z] Trigger is:  {"eventTrigger":{"resource":"projects/chipitsafe","eventType":"providers/firebase.auth/eventTypes/user.delete","service":"firebaseauth.googleapis.com"}}
+[info] i  functions: updating Node.js 6 function updateUserAppToken(us-central1)...
+[debug] [2018-10-11T08:41:32.860Z] Trigger is:  {"httpsTrigger":{}}
+[debug] [2018-10-11T08:41:32.862Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/chipitsafe/locations/us-central1/functions/createUserConfig {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType,eventTrigger.service"} 
+
+[debug] [2018-10-11T08:41:32.863Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/chipitsafe/locations/us-central1/functions/deleteUserConfig {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType,eventTrigger.service"} 
+
+[debug] [2018-10-11T08:41:32.864Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/chipitsafe/locations/us-central1/functions/updateUserAppToken {"updateMask":"sourceUploadUrl,name,labels,httpsTrigger"} 
+
+[debug] [2018-10-11T08:41:33.199Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:33.202Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:33.281Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:33.282Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/chipitsafe/locations/-/functions  
+ 
+[debug] [2018-10-11T08:41:33.872Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:33.873Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9jcmVhdGVVc2VyQ29uZmlnL3RnZFZ6RVBrMmtF  
+ 
+[debug] [2018-10-11T08:41:33.873Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9kZWxldGVVc2VyQ29uZmlnL25OaVFfT25BMlpZ  
+ 
+[debug] [2018-10-11T08:41:33.874Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS91cGRhdGVVc2VyQXBwVG9rZW4vZmFvMGxXS2JQUE0  
+ 
+[debug] [2018-10-11T08:41:34.145Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:34.146Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:34.154Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:36.146Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS91cGRhdGVVc2VyQXBwVG9rZW4vZmFvMGxXS2JQUE0  
+ 
+[debug] [2018-10-11T08:41:36.147Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9kZWxldGVVc2VyQ29uZmlnL25OaVFfT25BMlpZ  
+ 
+[debug] [2018-10-11T08:41:36.156Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9jcmVhdGVVc2VyQ29uZmlnL3RnZFZ6RVBrMmtF  
+ 
+[debug] [2018-10-11T08:41:36.398Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:36.405Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:36.412Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:38.399Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9kZWxldGVVc2VyQ29uZmlnL25OaVFfT25BMlpZ  
+ 
+[debug] [2018-10-11T08:41:38.406Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9jcmVhdGVVc2VyQ29uZmlnL3RnZFZ6RVBrMmtF  
+ 
+[debug] [2018-10-11T08:41:38.414Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS91cGRhdGVVc2VyQXBwVG9rZW4vZmFvMGxXS2JQUE0  
+ 
+[debug] [2018-10-11T08:41:38.664Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:38.674Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:38.685Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:40.665Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9jcmVhdGVVc2VyQ29uZmlnL3RnZFZ6RVBrMmtF  
+ 
+[debug] [2018-10-11T08:41:40.675Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9kZWxldGVVc2VyQ29uZmlnL25OaVFfT25BMlpZ  
+ 
+[debug] [2018-10-11T08:41:40.686Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS91cGRhdGVVc2VyQXBwVG9rZW4vZmFvMGxXS2JQUE0  
+ 
+[debug] [2018-10-11T08:41:40.916Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:40.921Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:41.006Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:42.917Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9jcmVhdGVVc2VyQ29uZmlnL3RnZFZ6RVBrMmtF  
+ 
+[debug] [2018-10-11T08:41:42.921Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9kZWxldGVVc2VyQ29uZmlnL25OaVFfT25BMlpZ  
+ 
+[debug] [2018-10-11T08:41:43.007Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS91cGRhdGVVc2VyQXBwVG9rZW4vZmFvMGxXS2JQUE0  
+ 
+[debug] [2018-10-11T08:41:43.160Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:43.174Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:43.265Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:45.162Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9kZWxldGVVc2VyQ29uZmlnL25OaVFfT25BMlpZ  
+ 
+[debug] [2018-10-11T08:41:45.176Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS9jcmVhdGVVc2VyQ29uZmlnL3RnZFZ6RVBrMmtF  
+ 
+[debug] [2018-10-11T08:41:45.266Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/Y2hpcGl0c2FmZS91cy1jZW50cmFsMS91cGRhdGVVc2VyQXBwVG9rZW4vZmFvMGxXS2JQUE0  
+ 
+[debug] [2018-10-11T08:41:45.425Z] <<< HTTP RESPONSE 200
+[info] +  functions[deleteUserConfig(us-central1)]: Successful update operation. 
+[debug] [2018-10-11T08:41:45.440Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-11T08:41:45.622Z] <<< HTTP RESPONSE 200

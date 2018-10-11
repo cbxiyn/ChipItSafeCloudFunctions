@@ -25,7 +25,10 @@ exports.createUserConfig = functions.auth.user().onCreate(user => {
     emailVerified: user.emailVerified,
     //TODO: Implement the datatype below
     applicationType: "Wearer",
-    userAppToken: null
+    userAppToken: null,
+    rescuers: {
+      F4PkZCguydVty8Cw9WF84N5Pcba2 : false
+    }
   };
   // [END eventAttributes]
   return createUserConfig(data);
